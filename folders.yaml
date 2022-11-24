@@ -1,0 +1,55 @@
+Absolute:
+    General:
+        - C:\Program Files (x86)\Google\Update\Download
+        - C:\Program Files (x86)\Microsoft\Edge\Application\SetupMetrics
+        - C:\Program Files (x86)\Microsoft\EdgeUpdate\Download
+        - C:\Program Files (x86)\Microsoft\EdgeWebView\Application\SetupMetrics
+        - C:\Program Files (x86)\Steam\appcache
+        - C:\Program Files (x86)\Steam\steamapps\shadercache
+        - C:\Program Files\NVIDIA Corporation\Installer2
+        - C:\ProgramData\NVIDIA Corporation\Downloader
+        - C:\ProgramData\Origin\SelfUpdate
+        - C:\ProgramData\Package Cache
+        - C:\ProgramData\UL\3DMark\tmp
+        - C:\AMD
+    Logs:
+        - C:\Program Files (x86)\Mozilla Maintenance Service\logs
+        - C:\Program Files (x86)\Mozilla Maintenance Service\UpdateLogs
+        - C:\ProgramData\NVIDIA Corporation\GeForce Experience\Logs
+        - C:\ProgramData\NVIDIA Corporation\NVIDIA GeForce Experience\Logs
+        - C:\ProgramData\NVIDIA Corporation\ShadowPlay
+        - C:\ProgramData\USOShared\Logs
+        - C:\ProgramData\VMware\logs
+User:
+    General:
+        - AppData\Local\CrashDumps
+        - AppData\Local\D3DSCache
+        - AppData\Local\Epic Games\EOSOverlay\BrowserCache
+        - AppData\Local\EpicGamesLauncher\Saved\webcache
+        - AppData\Local\EpicGamesLauncher\Saved\webcache_4147
+        - AppData\Local\EpicGamesLauncher\Saved\webcache_4430
+        - AppData\Local\Nox\rom_update
+        - AppData\Local\NVIDIA\DXCache
+        - AppData\Local\NVIDIA\GLCache
+        - AppData\Local\NVIDIA Corporation\NVIDIA GeForce Experience\CefCache
+        - AppData\Local\NVIDIA Corporation\NVIDIA Notification\CefCache
+        - AppData\Local\NVIDIA Corporation\NVIDIA Share\CefCache
+        - AppData\Local\Origin\AvatarsCache
+        - AppData\Local\Origin\cache
+        - AppData\Local\Origin\Web Cache
+        - AppData\Local\Origin\ThinSetup
+        - AppData\Local\Package Cache
+        - AppData\Local\pip\cache
+        - AppData\Local\Steam\htmlcache
+        - AppData\Local\Temp
+        - AppData\Local\User Data\BrowserMetrics
+        - AppData\LocalLow\Temp
+        - AppData\Roaming\Discord\Cache
+        - AppData\Roaming\Discord\Code Cache
+        - AppData\Roaming\Discord\GPUCache
+        - AppData\Roaming\NVIDIA\ComputeCache
+        - AppData\Local\vcpkg\archives
+    Logs:
+        - AppData\Local\EpicGamesLauncher\Saved\Logs
+        - AppData\Local\Origin\Logs
+        - AppData\Roaming\Discord\logs
