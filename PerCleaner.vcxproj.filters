@@ -18,12 +18,12 @@
     <ClCompile Include="PerCleaner.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Folder.cpp">
+    <ClCompile Include="PathFolder.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Folder.h">
+    <ClInclude Include="PathFolder.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
