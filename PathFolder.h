@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <Shlobj.h>
+#include <filesystem>
 
 class PathFolder
 {
@@ -16,4 +17,6 @@ public:
 	std::string getPath();
 	bool isLog();
 	static std::string getUserFolderPath();
+	unsigned int getFoldersize(std::string rootFolder = "", unsigned int size = 0);
+	void deleteContents();
 };

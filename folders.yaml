@@ -12,6 +12,7 @@ Absolute:
         - C:\ProgramData\Package Cache
         - C:\ProgramData\UL\3DMark\tmp
         - C:\AMD
+        - C:\$Recycle.Bin
     Logs:
         - C:\Program Files (x86)\Mozilla Maintenance Service\logs
         - C:\Program Files (x86)\Mozilla Maintenance Service\UpdateLogs
@@ -49,6 +50,8 @@ User:
         - AppData\Roaming\Discord\GPUCache
         - AppData\Roaming\NVIDIA\ComputeCache
         - AppData\Local\vcpkg\archives
+        - AppData\Local\Google\Chrome\User Data\Default\Code Cache
+        - AppData\Local\Google\Chrome\User Data\Default\Cache
     Logs:
         - AppData\Local\EpicGamesLauncher\Saved\Logs
         - AppData\Local\Origin\Logs
