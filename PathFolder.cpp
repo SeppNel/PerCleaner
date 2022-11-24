@@ -25,7 +25,7 @@ unsigned int PathFolder::getFoldersize(std::string rootFolder, unsigned int size
 
     for (std::filesystem::directory_entry const& entry : std::filesystem::directory_iterator(dir)) {
         if (entry.is_directory()) {
-            std::string path = entry.path().generic_string();
+            std::string path = entry.path().string();
             size = getFoldersize(path, size);
         }
         else if (entry.is_regular_file()) {

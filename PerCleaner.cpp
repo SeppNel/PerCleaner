@@ -17,6 +17,31 @@ std::string readable_fs(float size) {
     return s +  units[i];
 }
 
+std::string resolvePath(std::string path)
+{
+    std::string parent = path.substr(0, path.find('*'));
+    std::string tmp = path.substr(path.find('*'));
+    std::string child = tmp.substr(0, tmp.find('\\'));
+    std::string extra = tmp.substr(tmp.find('\\'));
+
+    WIN32_FIND_DATAA data;
+    HANDLE hFind;
+
+    std::string searchPath = parent + child;
+
+    hFind = FindFirstFileA(searchPath.c_str(), &data);
+    if (hFind == INVALID_HANDLE_VALUE)
+    {
+        return "0";
+    }
+    else
+    {
+        FindClose(hFind);
+    }
+
+    return parent + data.cFileName + extra;
+}
+
 
 std::vector<PathFolder> readFolders() {
     YAML::Node file = YAML::LoadFile("folders.yaml");
@@ -42,16 +67,34 @@ std::vector<PathFolder> readFolders() {
     for (int i = 0; i < file["User"]["General"].size(); i++)
     {
         std::string path = file["User"]["General"][i].as<std::string>();
-        if (std::filesystem::exists(path)) {
-            folders.push_back(PathFolder(user + path));
+        
+        if (path.find('*') != std::string::npos) {
+            path = resolvePath(user + path);
+            if (std::filesystem::exists(path)) {
+                folders.push_back(PathFolder(path));
+            }
+        }
+        else {
+            if (std::filesystem::exists(user + path)) {
+                folders.push_back(PathFolder(user + path));
+            }
         }
     }
 
     for (int i = 0; i < file["User"]["Logs"].size(); i++)
     {
         std::string path = file["User"]["Logs"][i].as<std::string>();
-        if (std::filesystem::exists(path)) {
-            folders.push_back(PathFolder(user + path, true));
+
+        if (path.find('*') != std::string::npos) {
+            path = resolvePath(user + path);
+            if (std::filesystem::exists(path)) {
+                folders.push_back(PathFolder(path, true));
+            }
+        }
+        else {
+            if (std::filesystem::exists(user + path)) {
+                folders.push_back(PathFolder(user + path, true));
+            }
         }
     }
 
@@ -97,8 +140,16 @@ void clean(std::vector<PathFolder> folders, bool cache = true, bool logs = true)
 
         unsigned int size = folders[i].getFoldersize();
         if (size != 0) {
+            
+            try{
+                folders[i].deleteContents();
+            }
+            catch (const std::exception& e)
+            {
+                size = size - folders[i].getFoldersize();
+                std::cout << "Some files are in use : ";
+            }
             sum = sum + size;
-            folders[i].deleteContents();
             std::cout << folders[i].getPath() << " Deleted " << readable_fs(size) << std::endl;
         }
     }

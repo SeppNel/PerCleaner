@@ -52,6 +52,13 @@ User:
         - AppData\Local\vcpkg\archives
         - AppData\Local\Google\Chrome\User Data\Default\Code Cache
         - AppData\Local\Google\Chrome\User Data\Default\Cache
+        - AppData\Local\AMD\DxCache
+        - AppData\Local\AMD\DxcCache
+        - AppData\Local\AMD\OglpCache
+        - AppData\Local\AMD\VkCache
+        - AppData\Local\AMD\Radeonsoftware\cache
+        - AppData\Local\AMD\Radeonsoftware\QtWebEngine\Default\GPUCache
+        - AppData\Local\Mozilla\Firefox\Profiles\*.default-release\cache2
     Logs:
         - AppData\Local\EpicGamesLauncher\Saved\Logs
         - AppData\Local\Origin\Logs
