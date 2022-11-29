@@ -51,6 +51,11 @@ std::vector<PathFolder> readFolders() {
     for (int i = 0; i < file["Absolute"]["General"].size(); i++)
     {
         std::string path = file["Absolute"]["General"][i].as<std::string>();
+
+        if (path.find('*') != std::string::npos) {
+            path = resolvePath(path);
+        }
+
         if (std::filesystem::exists(path)) {
             folders.push_back(PathFolder(path));
         }
@@ -59,6 +64,11 @@ std::vector<PathFolder> readFolders() {
     for (int i = 0; i < file["Absolute"]["Logs"].size(); i++)
     {
         std::string path = file["Absolute"]["Logs"][i].as<std::string>();
+
+        if (path.find('*') != std::string::npos) {
+            path = resolvePath(path);
+        }
+
         if (std::filesystem::exists(path)) {
             folders.push_back(PathFolder(path, true));
         }
@@ -67,34 +77,28 @@ std::vector<PathFolder> readFolders() {
     for (int i = 0; i < file["User"]["General"].size(); i++)
     {
         std::string path = file["User"]["General"][i].as<std::string>();
-        
+        path = user + path;
+
         if (path.find('*') != std::string::npos) {
-            path = resolvePath(user + path);
-            if (std::filesystem::exists(path)) {
-                folders.push_back(PathFolder(path));
-            }
+            path = resolvePath(path);
         }
-        else {
-            if (std::filesystem::exists(user + path)) {
-                folders.push_back(PathFolder(user + path));
-            }
+
+        if (std::filesystem::exists(path)) {
+            folders.push_back(PathFolder(path));
         }
     }
 
     for (int i = 0; i < file["User"]["Logs"].size(); i++)
     {
         std::string path = file["User"]["Logs"][i].as<std::string>();
+        path = user + path;
 
         if (path.find('*') != std::string::npos) {
-            path = resolvePath(user + path);
-            if (std::filesystem::exists(path)) {
-                folders.push_back(PathFolder(path, true));
-            }
+            path = resolvePath(path);
         }
-        else {
-            if (std::filesystem::exists(user + path)) {
-                folders.push_back(PathFolder(user + path, true));
-            }
+
+        if (std::filesystem::exists(path)) {
+            folders.push_back(PathFolder(path, true));
         }
     }
 
