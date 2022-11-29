@@ -144,13 +144,9 @@ void clean(std::vector<PathFolder> folders, bool cache = true, bool logs = true)
 
         unsigned int size = folders[i].getFoldersize();
         if (size != 0) {
-            try{
-                folders[i].deleteContents();
-            }
-            catch (const std::exception& e)
-            {
+            if(!folders[i].deleteContents()){
                 size = size - folders[i].getFoldersize();
-                std::cout << "Some files are in use : ";
+                std::cout << "Some files are in use in: ";
             }
             sum = sum + size;
             std::cout << folders[i].getPath() << " | Deleted " << readable_fs(size) << std::endl;

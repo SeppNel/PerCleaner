@@ -37,8 +37,15 @@ unsigned int PathFolder::getFoldersize(std::string rootFolder, unsigned int size
     return size;
 }
 
-void PathFolder::deleteContents() {
+bool PathFolder::deleteContents() {
+    bool returnval = true;
     for (const auto& entry : std::filesystem::directory_iterator(getPath())) {
-        std::filesystem::remove_all(entry.path());
+        try {
+            std::filesystem::remove_all(entry.path());
+        }
+        catch (const std::exception& e) {
+            returnval = false;
+        }
     }
+    return returnval;
 }

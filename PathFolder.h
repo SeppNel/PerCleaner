@@ -18,5 +18,5 @@ public:
 	bool isLog();
 	static std::string getUserFolderPath();
 	unsigned int getFoldersize(std::string rootFolder = "", unsigned int size = 0);
-	void deleteContents();
+	bool deleteContents();
 };
