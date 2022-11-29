@@ -59,6 +59,7 @@ User:
         - AppData\Local\AMD\Radeonsoftware\cache
         - AppData\Local\AMD\Radeonsoftware\QtWebEngine\Default\GPUCache
         - AppData\Local\Mozilla\Firefox\Profiles\*.default-release\cache2
+        - .nuget
     Logs:
         - AppData\Local\EpicGamesLauncher\Saved\Logs
         - AppData\Local\Origin\Logs

@@ -116,13 +116,17 @@ void scanOnly(std::vector<PathFolder> folders) {
     unsigned int sumCache = 0;
     unsigned int sumLogs = 0;
     for (int i = 0; i < folders.size(); i++) {
+        unsigned int size = folders[i].getFoldersize();
         if (folders[i].isLog()) {
-            sumLogs = sumLogs + folders[i].getFoldersize();
+            sumLogs = sumLogs + size;
         }
         else {
-            sumCache = sumCache + folders[i].getFoldersize();
+            sumCache = sumCache + size;
         }
-        std::cout << folders[i].getPath() << " | " << readable_fs(folders[i].getFoldersize()) << " (" << folders[i].getFoldersize() << ")" << std::endl;
+        
+        if (size != 0) {
+            std::cout << folders[i].getPath() << " | " << readable_fs(size) << " (" << size << ")" << std::endl;
+        }
     }
 
     std::cout << std::endl;
@@ -140,7 +144,6 @@ void clean(std::vector<PathFolder> folders, bool cache = true, bool logs = true)
 
         unsigned int size = folders[i].getFoldersize();
         if (size != 0) {
-            
             try{
                 folders[i].deleteContents();
             }
@@ -150,7 +153,7 @@ void clean(std::vector<PathFolder> folders, bool cache = true, bool logs = true)
                 std::cout << "Some files are in use : ";
             }
             sum = sum + size;
-            std::cout << folders[i].getPath() << " Deleted " << readable_fs(size) << std::endl;
+            std::cout << folders[i].getPath() << " | Deleted " << readable_fs(size) << std::endl;
         }
     }
 
