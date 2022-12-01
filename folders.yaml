@@ -21,6 +21,8 @@ Absolute:
         - C:\ProgramData\NVIDIA Corporation\ShadowPlay
         - C:\ProgramData\USOShared\Logs
         - C:\ProgramData\VMware\logs
+        - C:\Windows\Logs
+        - C:\Windows\ServiceProfiles\NetworkService\AppData\Local\Microsoft\Windows\DeliveryOptimization\Logs
 User:
     General:
         - AppData\Local\CrashDumps
