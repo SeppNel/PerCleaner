@@ -48,57 +48,32 @@ std::vector<PathFolder> readFolders() {
     std::vector<PathFolder> folders;
     std::string user = PathFolder::getUserFolderPath();
 
-    for (int i = 0; i < file["Absolute"]["General"].size(); i++)
-    {
-        std::string path = file["Absolute"]["General"][i].as<std::string>();
+    
+    for (YAML::const_iterator it = file.begin(); it != file.end(); ++it) {
+        std::string pathType = it->first.as<std::string>();
+        YAML::Node values = it->second;
+        for (YAML::const_iterator it2 = values.begin(); it2 != values.end(); ++it2) {
+            std::string trashType = it2->first.as<std::string>();
+            std::vector<std::string> paths = it2->second.as<std::vector<std::string>>();
+            for (int i = 0; i < paths.size(); i++) {
+                std::string path = paths[i];
+                if (pathType == "User") {
+                    path = user + path;
+                }
 
-        if (path.find('*') != std::string::npos) {
-            path = resolvePath(path);
-        }
+                if (path.find('*') != std::string::npos) {
+                    path = resolvePath(path);
+                }
 
-        if (std::filesystem::exists(path)) {
-            folders.push_back(PathFolder(path));
-        }
-    }
-
-    for (int i = 0; i < file["Absolute"]["Logs"].size(); i++)
-    {
-        std::string path = file["Absolute"]["Logs"][i].as<std::string>();
-
-        if (path.find('*') != std::string::npos) {
-            path = resolvePath(path);
-        }
-
-        if (std::filesystem::exists(path)) {
-            folders.push_back(PathFolder(path, true));
-        }
-    }
-
-    for (int i = 0; i < file["User"]["General"].size(); i++)
-    {
-        std::string path = file["User"]["General"][i].as<std::string>();
-        path = user + path;
-
-        if (path.find('*') != std::string::npos) {
-            path = resolvePath(path);
-        }
-
-        if (std::filesystem::exists(path)) {
-            folders.push_back(PathFolder(path));
-        }
-    }
-
-    for (int i = 0; i < file["User"]["Logs"].size(); i++)
-    {
-        std::string path = file["User"]["Logs"][i].as<std::string>();
-        path = user + path;
-
-        if (path.find('*') != std::string::npos) {
-            path = resolvePath(path);
-        }
-
-        if (std::filesystem::exists(path)) {
-            folders.push_back(PathFolder(path, true));
+                if (std::filesystem::exists(path)) {
+                    if (trashType == "Logs") {
+                        folders.push_back(PathFolder(path, true));
+                    }
+                    else {
+                        folders.push_back(PathFolder(path));
+                    }
+                }
+            }
         }
     }
 
