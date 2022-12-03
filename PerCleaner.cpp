@@ -57,8 +57,13 @@ std::vector<PathFolder> readFolders() {
             std::vector<std::string> paths = it2->second.as<std::vector<std::string>>();
             for (int i = 0; i < paths.size(); i++) {
                 std::string path = paths[i];
+                bool isLog = false;
                 if (pathType == "User") {
                     path = user + path;
+                }
+
+                if (trashType == "Logs") {
+                    isLog = true;
                 }
 
                 if (path.find('*') != std::string::npos) {
@@ -66,12 +71,7 @@ std::vector<PathFolder> readFolders() {
                 }
 
                 if (std::filesystem::exists(path)) {
-                    if (trashType == "Logs") {
-                        folders.push_back(PathFolder(path, true));
-                    }
-                    else {
-                        folders.push_back(PathFolder(path));
-                    }
+                    folders.push_back(PathFolder(path, isLog));
                 }
             }
         }
