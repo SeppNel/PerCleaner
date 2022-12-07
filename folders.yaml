@@ -13,6 +13,10 @@ Absolute:
         - C:\ProgramData\UL\3DMark\tmp
         - C:\AMD
         - C:\$Recycle.Bin
+        - C:\WINDOWS\Installer\$PatchCache$
+        - C:\Windows\Prefetch
+        - C:\Windows\ServiceProfiles\NetworkService\AppData\Local\Temp
+        - C:\Windows\Temp
     Logs:
         - C:\Program Files (x86)\Mozilla Maintenance Service\logs
         - C:\Program Files (x86)\Mozilla Maintenance Service\UpdateLogs
@@ -23,6 +27,7 @@ Absolute:
         - C:\ProgramData\VMware\logs
         - C:\Windows\Logs
         - C:\Windows\ServiceProfiles\NetworkService\AppData\Local\Microsoft\Windows\DeliveryOptimization\Logs
+        - C:\Windows\Panther
 User:
     General:
         - AppData\Local\CrashDumps
@@ -62,6 +67,7 @@ User:
         - AppData\Local\AMD\Radeonsoftware\QtWebEngine\Default\GPUCache
         - AppData\Local\Mozilla\Firefox\Profiles\*.default-release\cache2
         - .nuget
+        - AppData\Local\Microsoft\Windows\WebCache
     Logs:
         - AppData\Local\EpicGamesLauncher\Saved\Logs
         - AppData\Local\Origin\Logs
