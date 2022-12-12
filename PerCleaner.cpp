@@ -4,6 +4,8 @@
 #include <vector>
 #include <filesystem>
 
+typedef unsigned long long ullong;
+
 std::string readable_fs(float size) {
     int i = 0;
     const std::string units[] = { "B", "kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
@@ -92,10 +94,10 @@ char menu() {
 }
 
 void scanOnly(std::vector<PathFolder> folders) {
-    unsigned int sumCache = 0;
-    unsigned int sumLogs = 0;
+    ullong sumCache = 0;
+    ullong sumLogs = 0;
     for (int i = 0; i < folders.size(); i++) {
-        unsigned int size = folders[i].getFoldersize();
+        ullong size = folders[i].getFoldersize();
         if (folders[i].isLog()) {
             sumLogs = sumLogs + size;
         }
@@ -115,13 +117,13 @@ void scanOnly(std::vector<PathFolder> folders) {
 }
 
 void clean(std::vector<PathFolder> folders, bool cache = true, bool logs = true) {
-    unsigned int sum = 0;
+    ullong sum = 0;
     for (int i = 0; i < folders.size(); i++) {
         if ((folders[i].isLog() && !logs) || (!folders[i].isLog() && !cache)) {
             continue;
         }
 
-        unsigned int size = folders[i].getFoldersize();
+        ullong size = folders[i].getFoldersize();
         if (size != 0) {
             if(!folders[i].deleteContents()){
                 size = size - folders[i].getFoldersize();

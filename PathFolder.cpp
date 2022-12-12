@@ -16,7 +16,7 @@ std::string PathFolder::getUserFolderPath() {
 	return path + "\\";
 }
 
-unsigned int PathFolder::getFoldersize(std::string rootFolder, unsigned int size) { //default rootFolder = "", size = 0;
+ullong PathFolder::getFoldersize(std::string rootFolder, ullong size) { //default rootFolder = "", size = 0;
     if (rootFolder == "") {
         rootFolder = getPath();
     }

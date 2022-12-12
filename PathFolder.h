@@ -2,6 +2,7 @@
 #include <iostream>
 #include <Shlobj.h>
 #include <filesystem>
+typedef unsigned long long ullong;
 
 class PathFolder
 {
@@ -17,6 +18,6 @@ public:
 	std::string getPath();
 	bool isLog();
 	static std::string getUserFolderPath();
-	unsigned int getFoldersize(std::string rootFolder = "", unsigned int size = 0);
+	ullong getFoldersize(std::string rootFolder = "", ullong size = 0);
 	bool deleteContents();
 };
