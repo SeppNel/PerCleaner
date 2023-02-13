@@ -25,8 +25,7 @@ ullong PathFolder::getFoldersize(std::string rootFolder, ullong size) { //defaul
 
     for (std::filesystem::directory_entry const& entry : std::filesystem::directory_iterator(dir)) {
         if (entry.is_directory()) {
-            std::string path = entry.path().string();
-            size = getFoldersize(path, size);
+            size = getFoldersize(entry.path().string(), size);
         }
         else if (entry.is_regular_file()) {
             size = size + entry.file_size();
