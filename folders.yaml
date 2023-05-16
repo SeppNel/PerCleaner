@@ -11,6 +11,7 @@ Absolute:
         - C:\ProgramData\Origin\SelfUpdate
         - C:\ProgramData\Package Cache
         - C:\ProgramData\UL\3DMark\tmp
+        - C:\ProgramData\Oracle\Java\installcache_x64
         - C:\AMD
         - C:\$Recycle.Bin
         - C:\WINDOWS\Installer\$PatchCache$
@@ -25,6 +26,7 @@ Absolute:
         - C:\ProgramData\NVIDIA Corporation\ShadowPlay
         - C:\ProgramData\USOShared\Logs
         - C:\ProgramData\VMware\logs
+        - C:\ProgramData\Microsoft\EdgeUpdate\Log
         - C:\Windows\Logs
         - C:\Windows\ServiceProfiles\NetworkService\AppData\Local\Microsoft\Windows\DeliveryOptimization\Logs
         - C:\Windows\Panther
@@ -68,6 +70,9 @@ User:
         - AppData\Local\Mozilla\Firefox\Profiles\*.default-release\cache2
         - .nuget
         - AppData\Local\Microsoft\Windows\WebCache
+        - Documents\Dolphin Emulator\Cache
+        - AppData\Local\Microsoft\VisualStudio\WebView2Cache
+        - AppData\Local\Microsoft\VisualStudio\SettingsLogs
     Logs:
         - AppData\Local\EpicGamesLauncher\Saved\Logs
         - AppData\Local\Origin\Logs
