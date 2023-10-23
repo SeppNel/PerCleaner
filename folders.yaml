@@ -12,12 +12,14 @@ Absolute:
         - C:\ProgramData\Package Cache
         - C:\ProgramData\UL\3DMark\tmp
         - C:\ProgramData\Oracle\Java\installcache_x64
+        - C:\ProgramData\ProtonVPN\Updates
         - C:\AMD
         - C:\$Recycle.Bin
         - C:\WINDOWS\Installer\$PatchCache$
         - C:\Windows\Prefetch
         - C:\Windows\ServiceProfiles\NetworkService\AppData\Local\Temp
         - C:\Windows\Temp
+        - C:\Windows\LastGood.Tmp
     Logs:
         - C:\Program Files (x86)\Mozilla Maintenance Service\logs
         - C:\Program Files (x86)\Mozilla Maintenance Service\UpdateLogs
@@ -27,6 +29,8 @@ Absolute:
         - C:\ProgramData\USOShared\Logs
         - C:\ProgramData\VMware\logs
         - C:\ProgramData\Microsoft\EdgeUpdate\Log
+        - C:\ProgramData\SP_FT_Logs
+        - C:\ProgramData\SP_FT_V6_Logs
         - C:\Windows\Logs
         - C:\Windows\ServiceProfiles\NetworkService\AppData\Local\Microsoft\Windows\DeliveryOptimization\Logs
         - C:\Windows\Panther
@@ -58,6 +62,7 @@ User:
         - AppData\Roaming\Discord\Code Cache
         - AppData\Roaming\Discord\GPUCache
         - AppData\Roaming\NVIDIA\ComputeCache
+        - AppData\Roaming\AMD\Chipset_Software
         - AppData\Local\vcpkg\archives
         - AppData\Local\Google\Chrome\User Data\Default\Code Cache
         - AppData\Local\Google\Chrome\User Data\Default\Cache
@@ -73,6 +78,7 @@ User:
         - Documents\Dolphin Emulator\Cache
         - AppData\Local\Microsoft\VisualStudio\WebView2Cache
         - AppData\Local\Microsoft\VisualStudio\SettingsLogs
+        - AppData\Local\Downloaded Installations
     Logs:
         - AppData\Local\EpicGamesLauncher\Saved\Logs
         - AppData\Local\Origin\Logs
